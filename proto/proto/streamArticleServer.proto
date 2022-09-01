@@ -1,0 +1,54 @@
+syntax = "proto3";
+package proto;
+option go_package = ".;proto";
+
+
+//ID
+message Aid {
+  int32 id = 1;
+}
+
+//作者
+message Author {
+  string author = 1;
+}
+
+//标题
+message Title {
+  string title = 1;
+}
+
+//内容
+message Content {
+  string content = 1;
+}
+
+// 文章信息
+message ArticleInfo {
+  int32 id = 1;
+  string author = 2;
+  string title = 3;
+  string content = 4;
+}
+
+// 保存文章信息
+message ArticleParam {
+  Author author = 2;
+  Title title = 3;
+  Content content = 4;
+}
+
+
+//删除状态
+message Status{
+  bool code = 1;
+}
+
+// 声明那些方法可以使用rpc
+service ArticleServer {
+  rpc SaveArticle (stream ArticleParam) returns (Aid) {}
+  rpc GetArticleInfo (Aid) returns (stream ArticleInfo) {}
+  rpc DeleteArticle(stream Aid) returns (stream Status){}
+}
+
+//执行 ：protoc --go_out=plugins=grpc:. streamArticleServer.proto

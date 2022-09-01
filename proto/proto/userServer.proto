@@ -1,0 +1,37 @@
+syntax = "proto3";
+package proto;
+option go_package = ".;proto";
+
+message Id {
+  int32 id = 1;
+}
+
+//名字
+message Name {
+  string name = 1;
+}
+
+//年龄
+message Age {
+  int32 age = 1;
+}
+
+// 用户信息
+message UserInfo {
+  int32 id = 1;
+  string name = 2;
+  int32 age = 3;
+}
+
+// 用户参数
+message UserParams {
+  Name name = 1;
+  Age age = 2;
+}
+
+service UserServer {
+  rpc SaveUser (UserParams) returns (Id) {}
+  rpc GetUserInfo (Id) returns (UserInfo) {}
+}
+
+// protoc --go_out=plugins=grpc:. userServer.proto

@@ -1,0 +1,14 @@
+server:
+  port: :8080
+  version: 1.0
+  jwtSecret: 38324
+
+redis:
+  address: 172.16.27.247:16379
+  password:
+
+etcd:
+  address: 172.16.27.247:2379
+
+domain:
+  user: user

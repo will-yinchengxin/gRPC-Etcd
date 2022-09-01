@@ -1,0 +1,17 @@
+server:
+  domain: user
+  version: 1.0
+  jwtSecret: 38324
+  grpcAddress: "127.0.0.1:10001"
+
+mysql:
+  driverName: mysql
+  host: 172.16.27.247
+  port: 13306
+  database: will
+  username: will
+  password: admin123
+  charset: utf8mb4
+
+etcd:
+  address: 172.16.27.247:2379
