@@ -1,4 +1,4 @@
-package corn
+package core
 
 import (
 	"api-gateway/discovery"

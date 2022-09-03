@@ -1,7 +1,7 @@
 package main
 
 import (
-	"api-gateway/cmd/corn"
+	"api-gateway/cmd/core"
 	"api-gateway/config"
 	"fmt"
 	"os"
@@ -11,7 +11,7 @@ import (
 
 func main() {
 	config.InitConfig()   // init config
-	go corn.StartListen() // 转载路由，将 http 转接成为 gRPC
+	go core.StartListen() // 转载路由，将 http 转接成为 gRPC
 
 	{ // 利用信号阻塞
 		osSignals := make(chan os.Signal, 1)
