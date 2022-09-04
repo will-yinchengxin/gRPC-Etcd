@@ -4,10 +4,10 @@ import (
 	"fmt"
 	"github.com/sirupsen/logrus"
 	"github.com/spf13/viper"
+	"github.com/will-yinchengxin/discovery"
 	"google.golang.org/grpc"
 	"net"
 	"user/config"
-	"user/discovery"
 	"user/internal/handler"
 	"user/internal/repository"
 	"user/internal/service"
@@ -22,7 +22,7 @@ func main() {
 	// 服务注册
 	etcdRegister := discovery.NewRegister(etcdAddress, logrus.New())
 	grpcAddr := viper.GetString("server.grpcAddress")
-	defer etcdRegister.Stop()
+	defer etcdRegister.StopSrv()
 
 	userNode := discovery.Server{
 		Name: viper.GetString("server.domain"),

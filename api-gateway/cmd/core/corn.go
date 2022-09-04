@@ -1,7 +1,6 @@
 package core
 
 import (
-	"api-gateway/discovery"
 	"api-gateway/internal/service"
 	"api-gateway/middleware/wrapper"
 	"api-gateway/pkg/rpc"
@@ -11,6 +10,7 @@ import (
 	"fmt"
 	"github.com/sirupsen/logrus"
 	"github.com/spf13/viper"
+	"github.com/will-yinchengxin/discovery"
 	"google.golang.org/grpc/resolver"
 	"net/http"
 	"time"
